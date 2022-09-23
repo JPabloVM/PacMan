@@ -29,28 +29,35 @@ public class Ghost extends GameObject {
 
     public void moverGhost() {
         // Defino o escolha de opções que o Random pode "escolher"
-        int mini = 0;
-        int maxi = 4;
-        int limite = maxi - mini + 1;
-        int escolha = (int) (Math.random() * limite);
+        int minimo = 0;
+        int maximo = 3;
+        int range = maximo - minimo + 1;
+        int escolha = (int) (Math.random() * range) + minimo;
+        System.out.println(escolha);
 
         if (podeMoverGhost(escolha) == true) {
-            this.setPosicaoY(this.getPosicaoY() - 10);
-        }
-        if (podeMoverGhost(escolha) == true) {
-            this.setPosicaoX(this.getPosicaoX() + 10);
-        }
-        if (podeMoverGhost(escolha) == true) {
-            this.setPosicaoY(this.getPosicaoY() + 10);
-        }
-        if (podeMoverGhost(escolha) == true) {
-            this.setPosicaoX(this.getPosicaoX() - 10);
+            if (escolha == 0) {
+                this.setPosicaoY(this.getPosicaoY() - 10);
+                this.setDirection(0);
+            }
+            if (escolha == 1) {
+                this.setPosicaoX(this.getPosicaoX() + 10);
+                this.setDirection(90);
+
+            }
+            if (escolha == 2) {
+                this.setPosicaoY(this.getPosicaoY() + 10);
+                this.setDirection(180);
+            }
+            if (escolha == 3) {
+                this.setPosicaoX(this.getPosicaoX() - 10);
+                this.setDirection(270);
+            }
         }
 
     }
 
     public boolean podeMoverGhost(int escolha) {
-        int novoX, novoY;
         boolean pMoverGhost = false;
 
         if (escolha == 0) {
@@ -60,15 +67,13 @@ public class Ghost extends GameObject {
             }
         }
         if (escolha == 1) {
-            novoX = this.getPosicaoX() + 10;
-            if (novoX > 0 && novoX < getScreenzize() && posicaoY < getScreenzize()) {
+            if (this.getPosicaoX() + 10 < this.getScreensize()) {
                 pMoverGhost = true;
             }
         }
         if (escolha == 2) {
-            novoY = this.getPosicaoY() + 10;
 
-            if (novoY > 0 && novoY < getScreenzize() && posicaoX < getScreenzize()) {
+            if (this.getPosicaoY() + 10 < this.getScreensize()) {
                 pMoverGhost = true;
             }
         }
@@ -80,6 +85,10 @@ public class Ghost extends GameObject {
 
         return pMoverGhost;
 
+    }
+
+    public static void removeLife(Player pl) {
+        pl.setLife(pl.getLife() - 1);
     }
 
 }

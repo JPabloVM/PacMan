@@ -1,34 +1,41 @@
 package model;
+
 public class Booster extends Item {
-    private int duracao;
-    
-    
+    private int duracaoBoost;
 
-    public Booster(int duracao) {
-        this.duracao = duracao;
+    public int getDuracaoBoost() {
+        return duracaoBoost;
     }
 
-    public int getDuracao() {
-        return duracao;
+    public void setDuracaoBoost(int duracaoBoost) {
+        this.duracaoBoost = duracaoBoost;
     }
 
-    public void setDuracao(int duracao) {
-        this.duracao = duracao;
+    public Booster() {
     }
 
-    /*private boolean imunizar(int posicaoX,int posicaoY){
-        if(posicaoX==)
+    public Booster(int posicaoX, int posicaoY, boolean visivel, int duracaoBoost) {
+        super(posicaoX, posicaoY, visivel);
+        this.duracaoBoost = duracaoBoost;
+    }
+
     
-}*/
-public Booster() {
-}
-public Booster(int posicaoX, int posicaoY){
-    super(posicaoX, posicaoY);
-}
 
-public Booster(int posicaoX, int posicaoY, int duracao, int posicaoX2, int posicaoY2) {
-    this.duracao = duracao;
-    posicaoX = posicaoX2;
-    posicaoY = posicaoY2;
-}
+    public Booster(int posicaoX, int posicaoY) {
+        super(posicaoX, posicaoY);
+    }
+
+    public boolean playerComBooster(Player pl) {
+        
+        if (duracaoBoost > 0) {
+            pl.setInvencivel(true);
+            return true;
+        }if(duracaoBoost<=0){
+            pl.setInvencivel(false);
+            return false;
+        }
+
+        return false;
+    }
+
 }

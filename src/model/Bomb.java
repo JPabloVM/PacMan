@@ -1,26 +1,22 @@
 package model;
 public class Bomb extends Item{
-    public int removerVida;
-
-    public int getRemoverVida() {
-        return removerVida;
-    }
-
-    public void setRemoverVida(int removerVida) {
-        this.removerVida = removerVida;
-    }
 
     public Bomb() {
     }
 
-    public Bomb(int removerVida) {
-        this.removerVida = removerVida;
+    public Bomb(int posicaoX, int posicaoY, boolean visivel) {
+        super(posicaoX, posicaoY, visivel);
     }
 
-    public Bomb(int posicaoX, int posicaoY) {
-        super(posicaoX, posicaoY);
+    public Bomb(int posicaoX, int posicaoY){
+        super(posicaoX,posicaoY);
+    }
+    
+    public void removeLife(Player pl){
+        pl.setLife(pl.getLife() - 1);
     }
 
     
+       
     
 }

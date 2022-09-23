@@ -5,8 +5,7 @@ import Exceptions.ExceptionParameter;
 public abstract class GameObject {
     protected int posicaoX;
     protected int posicaoY;
-    private int screenzize;
-    
+    private int screensize;
 
     public GameObject(int posicaoX, int posicaoY) {
         this.posicaoX = posicaoX;
@@ -32,21 +31,15 @@ public abstract class GameObject {
         this.posicaoY = posicaoY;
     }
 
-    public int getScreenzize() {
-        return screenzize;
+    public int getScreensize() {
+        return screensize;
     }
 
-    public void setScreenzize(int screenzize) {
-        this.screenzize = screenzize;
-    }
-
-    public GameObject(int screenzize) {
-        if(screenzize<0){
+    public void setScreensize(int screensize) {
+        if (screensize <= 0) {
             throw new ExceptionParameter("O tamanho da tela deve ser maior que 0!");
         }
-        this.screenzize = screenzize;
+        this.screensize = screensize;
     }
-
-   
 
 }
