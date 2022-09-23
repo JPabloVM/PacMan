@@ -17,7 +17,7 @@ import model.Player;
 public class Game extends JFrame implements KeyListener {
 
 	private static final long serialVersionUID = 1L;
-	private Player player = new Player(100, 100, 90);
+	private Player player = new Player(600, 50, 180);
 	private Ghost ghost1 = new Ghost(100, 0, 90);
 	private Ghost ghost2 = new Ghost(500, 0, 0);
 	private Ghost ghost3 = new Ghost(0, 500, 0);
@@ -34,7 +34,7 @@ public class Game extends JFrame implements KeyListener {
 	private JLabel imgBooster = new JLabel(new ImageIcon("src/images/booster.png"));
 
 	private final int SCREENSIZE = 600;
-	private int speed = 50;
+	private int speed = 500;
 
 	public static void main(String[] args) {
 		new Game().init();

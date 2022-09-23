@@ -48,46 +48,33 @@ public class Player extends GameObject {
         this.invencivel = invencivel;
     }
 
-    public void setScreenSize(int screenzize) {
+    public void setScreenSize(int screensize) {
     }
 
     public void mover(int direction) {
-        /*
-         * if (podeMover(0) == true) {
-         * this.setPosicaoY(this.getPosicaoY() - 10);
-         * }
-         * if (podeMover(90) == true) {
-         * this.setPosicaoX(this.getPosicaoX() + 10);
-         * }
-         * if (podeMover(180) == true) {
-         * this.setPosicaoY(this.getPosicaoY() + 10);
-         * }
-         * if (podeMover(270) == true) {
-         * this.setPosicaoX(this.getPosicaoX() - 10);
-         * }
-         */
-        if (podeMover(direction)) {
-            switch (direction) {
-                case 0:
-                    this.setPosicaoY(this.getPosicaoY() - 10);
-                    break;
-                case 180:
-                    this.setPosicaoY(this.getPosicaoY() + 10);
-                    break;
-                case 270:
-                    this.setPosicaoX(this.getPosicaoX() - 10);
-                case 90:
-                    this.setPosicaoX(this.getPosicaoX() + 10);
-                    break;
-                    default:
-                    System.out.println("Direção inválida");
-            }
+
+        if (podeMover(0) == true) {
+            this.setPosicaoY(this.getPosicaoY() - 10);
+            System.out.println("movendo 0");
+        }
+        if (podeMover(90) == true) {
+            this.setPosicaoX(this.getPosicaoX() + 10);
+            System.out.println("movendo 90");
+        }
+        if (podeMover(180) == true) {
+            this.setPosicaoY(this.getPosicaoY() + 10);
+            System.out.println("movendo 180");
+        }
+        if (podeMover(270) == true) {
+            this.setPosicaoX(this.getPosicaoX() - 10);
+            System.out.println("movendo 270");
         }
 
     }
 
     public boolean podeMover(int direction) {
-       /* boolean pMover = false;
+
+        boolean pMover = false;
 
         if (direction == 0) {
 
@@ -98,14 +85,14 @@ public class Player extends GameObject {
         }
         if (direction == 90) {
 
-            if (this.getPosicaoX() + 10 < this.getScreenzize()) {
+            if (this.getPosicaoX() + 10 < this.getScreensize()) {
                 pMover = true;
                 System.out.println("pode mover 90");
             }
         }
         if (direction == 180) {
 
-            if (this.getPosicaoY() + 10 < this.getScreenzize()) {
+            if (this.getPosicaoY() + 10 < this.getScreensize()) {
                 pMover = true;
                 System.out.println("pode mover 180");
             }
@@ -116,24 +103,8 @@ public class Player extends GameObject {
                 System.out.println("pode mover 270");
             }
         }
-        //JOptionPane.showMessageDialog(null, "Não pode mover");
-        return pMover;*/
-
-        boolean ok = false;
         
-        if(direction == 0)
-            if(this.getPosicaoY() - 10 > 0)
-                ok = true; 
-        if(direction == 180)
-            if(this.getPosicaoY() + 10 < this.getScreensize())
-                ok = true; 
-        if(direction == 270)
-            if(this.getPosicaoX() - 20 > 0)
-                ok = true; 
-        if(direction == 90)
-            if(this.getPosicaoX() + 10 < this.getScreensize())
-                ok = true; 
-        return ok;
+        return pMover;
 
     }
 
